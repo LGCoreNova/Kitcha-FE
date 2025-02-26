@@ -14,5 +14,9 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
+
+# 사용자 정의 Nginx 설정 파일 복사 (nginx.conf를 프로젝트 루트에 두세요)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
