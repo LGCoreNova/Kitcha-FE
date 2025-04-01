@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: 'http://54.215.85.146:8072',
 });
 
 // 요청 인터셉터 (JWT 토큰 자동 포함)
